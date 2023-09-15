@@ -14,13 +14,19 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * 基础含自动生成id的实体
+ * 
+ * @author fansword
+ *
+ */
+
 @MappedSuperclass
 @Data
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class AbstractSparrowUuidEntity extends AbstractSparrowEntity {
-	private static final long serialVersionUID = 1L;
+public abstract class BaseIdEntity extends BaseOpLog {
 
 	@EqualsAndHashCode.Include
 	@Id

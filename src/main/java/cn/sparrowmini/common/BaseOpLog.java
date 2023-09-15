@@ -1,6 +1,5 @@
 package cn.sparrowmini.common;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,11 +24,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @EntityListeners({ DeleteLogListener.class })
-public abstract class AbstractSparrowEntity implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public abstract class BaseOpLog {
 
 	@Transient
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -59,15 +54,5 @@ public abstract class AbstractSparrowEntity implements Serializable {
 	@Column(name = "modified_by", insertable = true, updatable = true)
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private String modifiedBy;
-
-	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	@Column(name = "data_permission_token_id")
-	private String dataPermissionTokenId;
-
-//	@OneToOne(targetEntity = DataPermissionToken.class)
-//	@JoinColumn(name = "data_permission_token_id", insertable = false, updatable = false)
-//	@NotAudited
-//	@JsonIgnore
-//	private DataPermissionToken dataPermissionToken;
 
 }
