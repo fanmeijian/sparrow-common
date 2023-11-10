@@ -20,17 +20,10 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import cn.sparrowmini.common.LoggedUserGenerator;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "spr_delete_log")
-@Data
-@NamedQuery(
-name="DeleteLog.findByClassName",
-query="SELECT c FROM DeleteLog c WHERE c.className = :className"
-)
-@NoArgsConstructor
+@NamedQuery(name = "DeleteLog.findByClassName", query = "SELECT c FROM DeleteLog c WHERE c.className = :className")
 public class DeleteLog implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -49,9 +42,46 @@ public class DeleteLog implements Serializable {
 	@GeneratorType(type = LoggedUserGenerator.class, when = GenerationTime.INSERT)
 	@Column(name = "created_by", insertable = true, updatable = false)
 	private String opUser;
-	
+
 	public DeleteLog(String className) {
 		this.className = className;
+	}
+
+	public DeleteLog() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public Date getOpTime() {
+		return opTime;
+	}
+
+	public void setOpTime(Date opTime) {
+		this.opTime = opTime;
+	}
+
+	public String getOpUser() {
+		return opUser;
+	}
+
+	public void setOpUser(String opUser) {
+		this.opUser = opUser;
 	}
 
 }

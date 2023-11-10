@@ -15,10 +15,7 @@ import org.hibernate.envers.NotAudited;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-
 @MappedSuperclass
-@Getter
 public abstract class BaseOpLog {
 	@Column(name = "created_date", insertable = true, updatable = false)
 	@CreationTimestamp
@@ -43,4 +40,22 @@ public abstract class BaseOpLog {
 	@Column(name = "modified_by", insertable = true, updatable = true)
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private String modifiedBy;
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+	
+	
 }

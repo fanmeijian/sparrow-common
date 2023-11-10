@@ -18,12 +18,7 @@ import org.hibernate.envers.NotAudited;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 @MappedSuperclass
-@Data
-@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @EntityListeners({ DeleteLogListener.class })
 public abstract class AbstractSparrowEntity implements Serializable {
 	/**
@@ -64,10 +59,54 @@ public abstract class AbstractSparrowEntity implements Serializable {
 	@Column(name = "data_permission_token_id")
 	private String dataPermissionTokenId;
 
-//	@OneToOne(targetEntity = DataPermissionToken.class)
-//	@JoinColumn(name = "data_permission_token_id", insertable = false, updatable = false)
-//	@NotAudited
-//	@JsonIgnore
-//	private DataPermissionToken dataPermissionToken;
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+	public String getDataPermissionTokenId() {
+		return dataPermissionTokenId;
+	}
+
+	public void setDataPermissionTokenId(String dataPermissionTokenId) {
+		this.dataPermissionTokenId = dataPermissionTokenId;
+	}
+	
+	
 
 }
