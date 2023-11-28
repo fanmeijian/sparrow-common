@@ -5,7 +5,8 @@ import javax.persistence.MappedSuperclass;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @MappedSuperclass
-public abstract class CommonProp extends BaseOpLog {
+public abstract class CommonProp extends AbstractSparrowEntity {
+	private static final long serialVersionUID = 1L;
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private String stat = "Draft";
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)

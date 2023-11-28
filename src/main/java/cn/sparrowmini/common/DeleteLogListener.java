@@ -36,12 +36,13 @@ public class DeleteLogListener {
 						Method method = object.getClass().getMethod("get" + StringUtils.capitalize(field.getName()));
 
 						this.emf = EntityManagerHelper.entityManagerFactory;
+						String pkValue = method.invoke(object).toString();
 						EntityManager entityManager = this.emf.createEntityManager();
 						entityManager.getTransaction().begin();
-						entityManager.persist(new DeleteLog(object.getClass().getName()));
+						entityManager.persist(new DeleteLog(object.getClass().getName(),pkValue));
 						entityManager.getTransaction().commit();
-						System.out.println(String.join(" ", object.getClass().getName(),
-								method.invoke(object).toString(), "deleted by ", CurrentUser.get()));
+						System.out.println(String.join(" ", object.getClass().getName(), pkValue, "deleted by ",
+								CurrentUser.get()));
 
 					} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException
 							| NoSuchMethodException | SecurityException e) {

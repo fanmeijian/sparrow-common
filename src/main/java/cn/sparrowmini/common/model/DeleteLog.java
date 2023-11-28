@@ -34,6 +34,8 @@ public class DeleteLog implements Serializable {
 	private String id;
 
 	private String className;
+	@Column(length = 1000)
+	private String pkValue;
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_date", insertable = true, updatable = false)
@@ -45,6 +47,11 @@ public class DeleteLog implements Serializable {
 
 	public DeleteLog(String className) {
 		this.className = className;
+	}
+	
+	public DeleteLog(String className, String pkValue) {
+		this.className = className;
+		this.pkValue = pkValue;
 	}
 
 	public DeleteLog() {
@@ -84,4 +91,13 @@ public class DeleteLog implements Serializable {
 		this.opUser = opUser;
 	}
 
+	public String getPkValue() {
+		return pkValue;
+	}
+
+	public void setPkValue(String pkValue) {
+		this.pkValue = pkValue;
+	}
+
+	
 }
