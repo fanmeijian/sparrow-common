@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @MappedSuperclass
 public abstract class AbstractSparrowUuidEntity extends AbstractSparrowEntity {
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GenericGenerator(name = "id-generator", strategy = "uuid")
