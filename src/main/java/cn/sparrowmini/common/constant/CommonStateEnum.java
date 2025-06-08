@@ -1,4 +1,4 @@
-package cn.sparrowmini.common;
+package cn.sparrowmini.common.constant;
 
 public enum CommonStateEnum {
 	Draft,

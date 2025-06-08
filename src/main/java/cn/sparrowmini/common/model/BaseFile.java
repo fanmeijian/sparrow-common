@@ -1,11 +1,10 @@
 package cn.sparrowmini.common.model;
 
-import cn.sparrowmini.common.BaseOpLog;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.annotations.GenericGenerator;
+import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -17,8 +16,8 @@ import java.util.Set;
 public class BaseFile extends BaseOpLog implements Serializable {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Id
-    @GenericGenerator(name = "id-generator", strategy = "uuid")
-    @GeneratedValue(generator = "id-generator")
+    @GeneratedValue
+    @UuidGenerator
     private String id;
 
     private int seq;

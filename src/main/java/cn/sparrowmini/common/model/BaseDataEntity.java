@@ -1,10 +1,10 @@
 package cn.sparrowmini.common.model;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
  * 基础资料的基本数据结构

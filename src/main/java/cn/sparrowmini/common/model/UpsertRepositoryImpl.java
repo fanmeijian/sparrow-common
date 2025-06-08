@@ -1,11 +1,11 @@
 package cn.sparrowmini.common.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Id;
+import jakarta.persistence.PersistenceContext;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.EntityManager;
-import javax.persistence.Id;
-import javax.persistence.PersistenceContext;
 import java.lang.reflect.Field;
 import java.util.*;
 

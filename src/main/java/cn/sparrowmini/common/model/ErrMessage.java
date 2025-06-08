@@ -1,11 +1,11 @@
 package cn.sparrowmini.common.model;
 
 import cn.sparrowmini.common.constant.PermissionTypeEnum;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.io.Serializable;
 
 @Data
