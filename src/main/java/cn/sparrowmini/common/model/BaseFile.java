@@ -3,7 +3,6 @@ package cn.sparrowmini.common.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
-import org.hibernate.envers.Audited;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -12,7 +11,6 @@ import java.util.Set;
  * 文件的基类
  */
 @MappedSuperclass
-@Audited
 public class BaseFile extends BaseOpLog implements Serializable {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Id

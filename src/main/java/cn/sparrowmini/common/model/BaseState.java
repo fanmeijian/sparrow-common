@@ -6,12 +6,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.Audited;
 
 
 @Setter
 @Getter
-@Audited
 @MappedSuperclass
 public abstract class BaseState extends BaseOpLog {
 

@@ -6,7 +6,6 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.NotAudited;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ public abstract class BaseEntity extends BaseState {
 
 	@Transient
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	@NotAudited
 	protected String modelName = this.getClass().getName();
 
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)

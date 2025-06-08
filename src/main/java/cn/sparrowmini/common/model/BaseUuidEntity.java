@@ -7,7 +7,6 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
-import org.hibernate.envers.Audited;
 
 
 @Setter
@@ -18,7 +17,6 @@ public abstract class BaseUuidEntity extends BaseEntity {
 	@Id
 	@GeneratedValue
 	@UuidGenerator
-	@Audited
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	protected String id;
 

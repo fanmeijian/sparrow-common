@@ -8,7 +8,6 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.envers.NotAudited;
 
 import java.time.OffsetDateTime;
 
@@ -17,13 +16,11 @@ public abstract class BaseOpLog {
 	@Column(name = "created_date", insertable = true, updatable = false,columnDefinition = "TIMESTAMP WITH TIME ZONE")
 	@CreationTimestamp
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	@NotAudited
 	private OffsetDateTime createdDate; // 创建时间
 
 	@Column(name = "modified_date", insertable = true, updatable = true,columnDefinition = "TIMESTAMP WITH TIME ZONE")
 	@UpdateTimestamp
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	@NotAudited
 	private OffsetDateTime modifiedDate; // 最后更新时间
 
 	@Column(name = "created_by", insertable = true, updatable = false)
