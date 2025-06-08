@@ -1,13 +1,13 @@
 package cn.sparrowmini.common.view;
 
-import java.util.Date;
+import java.time.OffsetDateTime;
 
 /**
  * 用于自定义entity graph
  */
 public interface BaseLogView {
-    Date getCreatedDate();
-    Date getModifiedDate();
+    OffsetDateTime getCreatedDate();
+    OffsetDateTime getModifiedDate();
     String getCreatedBy();
     String getModifiedBy();
 }
