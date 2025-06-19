@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "spr_dict")
-public class Dict extends BaseTree<Dict> implements Serializable {
+public class Dict extends BaseTree implements Serializable {
     private String catalogId;
 
     @Transient

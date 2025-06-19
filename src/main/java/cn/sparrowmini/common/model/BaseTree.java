@@ -14,12 +14,18 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
-public class BaseTree<T> extends BaseUuidEntity {
+public class BaseTree extends BaseUuidEntity {
     protected String parentId;
     protected String name;
     protected String code;
+    protected String catalogId;
+
+    /**
+     * 当勾选这个选项, 则默认包含所有的child,包括以后新增的
+     */
+    protected boolean includeAllChildren = false;
     protected String description;
-    protected BigDecimal seq;
+    protected BigDecimal seq=BigDecimal.ZERO;
 
     @Transient
     protected long childCount;
@@ -30,8 +36,12 @@ public class BaseTree<T> extends BaseUuidEntity {
     @Transient
     protected boolean expandable;
 
+    public boolean isExpandable() {
+        return childCount>0;
+    }
+
     @Transient
-    protected List<?> children = new ArrayList<>();
+    protected List<Object> children = new ArrayList<>();
 
     public BaseTree(BaseTree baseTree, long childCount){
 //        BeanUtils.copyProperties(baseTree, this);
