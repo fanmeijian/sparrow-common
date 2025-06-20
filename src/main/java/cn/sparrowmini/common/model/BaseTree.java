@@ -1,6 +1,9 @@
 package cn.sparrowmini.common.model;
 
+import cn.sparrowmini.common.listener.BaseTreeListener;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
+@EntityListeners(BaseTreeListener.class)
 public class BaseTree extends BaseUuidEntity {
     protected String parentId;
     protected String name;
@@ -25,7 +29,7 @@ public class BaseTree extends BaseUuidEntity {
      */
     protected boolean includeAllChildren = false;
     protected String description;
-    protected BigDecimal seq=BigDecimal.ZERO;
+    protected BigDecimal seq;
 
     @Transient
     protected long childCount;
@@ -50,4 +54,5 @@ public class BaseTree extends BaseUuidEntity {
             expandable=true;
         }
     }
+
 }
