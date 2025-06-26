@@ -22,17 +22,17 @@ public abstract class BaseState extends BaseOpLog {
     /**
      * 单据的状态
      */
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+//    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Enumerated(EnumType.STRING)
     protected CommonStateEnum entityStat = CommonStateEnum.Draft;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+//    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     protected Boolean enabled = true;
 
     /**
      * 用于控制本条数据是否隐藏,也就是不显示
      */
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+//    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     protected Boolean hidden = false;
 
 }

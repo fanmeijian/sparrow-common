@@ -18,6 +18,7 @@ import java.util.List;
 public class BaseTree extends BaseUuidEntity {
     protected String parentId;
     protected String name;
+    @Column(unique = true)
     protected String code;
     protected String catalogId;
 
