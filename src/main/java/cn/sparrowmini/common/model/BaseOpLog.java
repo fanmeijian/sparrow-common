@@ -2,10 +2,7 @@ package cn.sparrowmini.common.model;
 
 import cn.sparrowmini.common.CurrentUser;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,12 +10,12 @@ import java.time.OffsetDateTime;
 
 @MappedSuperclass
 public abstract class BaseOpLog {
-	@Column(name = "created_date", insertable = true, updatable = false,columnDefinition = "TIMESTAMP WITH TIME ZONE")
+	@Column(name = "created_date", insertable = true, updatable = false,columnDefinition = "TIMESTAMP")
 	@CreationTimestamp
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private OffsetDateTime createdDate; // 创建时间
 
-	@Column(name = "modified_date", insertable = true, updatable = true,columnDefinition = "TIMESTAMP WITH TIME ZONE")
+	@Column(name = "modified_date", insertable = true, updatable = true,columnDefinition = "TIMESTAMP")
 	@UpdateTimestamp
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private OffsetDateTime modifiedDate; // 最后更新时间
