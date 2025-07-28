@@ -28,7 +28,8 @@ public class BaseTree extends BaseUuidEntity {
      */
     protected Boolean includeAllChildren = false;
     protected String description;
-    @Column(precision = 20, scale = 8)
+
+    @Column(precision = 20, scale = 8, unique = true)
     protected BigDecimal seq;
 
     @Transient
