@@ -20,4 +20,6 @@ import java.io.Serializable;
 public class SortedFile implements Serializable {
     private int seq;
     private String fileId;
+    private String name;
+    private long size;
 }
