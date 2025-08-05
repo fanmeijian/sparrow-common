@@ -8,6 +8,7 @@ import org.reflections.ReflectionUtils;
 
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.Objects;
 
 public class JpaUtils {
     final static ObjectMapper objectMapper = new ObjectMapper();
@@ -68,12 +69,29 @@ public class JpaUtils {
      * @return
      */
     public static Class<?> getIdType(Class<?> entityClass) {
+        return Objects.requireNonNull(getIdField(entityClass)).getType();
+    }
+
+    public static Field getIdField(Class<?> entityClass) {
         for (Field f : ReflectionUtils.getAllFields(entityClass)) {
             if (f.getAnnotation(Id.class) != null || f.getAnnotation(EmbeddedId.class) != null) {
-                return f.getType();
+                return f;
             }
         }
         return null;
+    }
+
+    public static <T, ID> ID getIdValue(T entity){
+        Field pkField = getIdField(entity.getClass());
+
+        try {
+            assert pkField != null;
+            pkField.setAccessible(true);
+           return (ID) pkField.get(entity);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
