@@ -4,6 +4,8 @@ package cn.sparrowmini.common.util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Id;
+import org.reflections.ReflectionUtils;
+
 import java.lang.reflect.Field;
 import java.util.Map;
 
@@ -58,6 +60,20 @@ public class JpaUtils {
                 field.set(target, value); // 更新非 null 的字段
             }
         }
+    }
+
+    /**
+     * 根据实体类获取ID的类型
+     * @param entityClass
+     * @return
+     */
+    public static Class<?> getIdType(Class<?> entityClass) {
+        for (Field f : ReflectionUtils.getAllFields(entityClass)) {
+            if (f.getAnnotation(Id.class) != null || f.getAnnotation(EmbeddedId.class) != null) {
+                return f.getType();
+            }
+        }
+        return null;
     }
 
 }

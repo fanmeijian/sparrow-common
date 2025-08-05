@@ -29,6 +29,6 @@ public class AppConfig extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private List<Map<String, Object>> configJson; // 保存变量的 JSON 字符串
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "appConfig")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "appConfig")
     private List<AppConfigAttachment> attachments;
 }

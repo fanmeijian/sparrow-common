@@ -23,7 +23,6 @@ public class AppConfigAttachment extends BaseUuidEntity {
 
     @JsonIgnore
     @Lob
-    @Column(name = "content")
     private byte[] contentByte;
 
     @JsonIgnore
