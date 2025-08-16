@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.sparrowmini</groupId>
 	<artifactId>sparrow-common</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>jar</packaging>
 	<properties>
 		<hibernate.version>7.0.0.Final</hibernate.version>
 		<junit-platform.version>5.3.1</junit-platform.version>
-		<typescript-generator.version>2.35.1025</typescript-generator.version>
 	</properties>
 	<dependencies>
 		<dependency>
