@@ -1,6 +1,7 @@
 package cn.sparrowmini.common.model;
 
 import cn.sparrowmini.common.listener.BaseTreeListener;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class BaseTree extends BaseUuidEntity {
     protected Boolean includeAllChildren = false;
     protected String description;
 
-    @Column(precision = 20, scale = 8, unique = true)
+    @Column(precision = 20, scale = 8)
     protected BigDecimal seq;
 
     @Transient
@@ -38,6 +39,7 @@ public class BaseTree extends BaseUuidEntity {
     @Transient
     protected long level;
 
+    @JsonProperty("expandable")
     @Transient
     protected boolean expandable;
 

@@ -22,15 +22,8 @@ import java.util.Set;
 public class Menu extends BaseTree implements Serializable {
 
 
-
-    @Column(unique = true, nullable = false)
-    private String code;
-    private String name;
-    private String parentId;
     private String url;
     private Boolean isSystem;
-    private String previousNodeId;
-    private String nextNodeId;
     private String icon;
 
     @JsonIgnore
