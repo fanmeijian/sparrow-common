@@ -2,7 +2,9 @@ package cn.sparrowmini.common.model.pem;
 
 import cn.sparrowmini.common.constant.PermissionEnum;
 import cn.sparrowmini.common.constant.PermissionTypeEnum;
+import cn.sparrowmini.common.model.Model;
 import cn.sparrowmini.common.model.TablePrefix;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -21,6 +23,11 @@ public class SysroleModel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private SysroleModelId id;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "modelId", insertable = false, updatable = false)
+    private Model model;
 
     public SysroleModel(String modelId, String sysroleId, PermissionTypeEnum permissionType,
                         PermissionEnum permission) {

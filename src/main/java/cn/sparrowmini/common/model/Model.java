@@ -1,5 +1,7 @@
 package cn.sparrowmini.common.model;
 
+import cn.sparrowmini.common.model.pem.SysroleModel;
+import cn.sparrowmini.common.model.pem.UserModel;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,5 +32,12 @@ public class Model implements Serializable {
 
     @OneToMany(mappedBy = "model")
     private List<ModelAttribute> modelAttributes;
+
+
+    @OneToMany(mappedBy = "model")
+    private List<UserModel> userModels;
+
+    @OneToMany(mappedBy = "model")
+    private List<SysroleModel> sysroleModels;
 
 }
