@@ -25,6 +25,9 @@ public class Menu extends BaseTree implements Serializable {
     private String url;
     private Boolean isSystem;
     private String icon;
+    private String target;
+    private String type;
+    private String queryParams;
 
     @JsonIgnore
     @OneToMany(mappedBy = "menu")

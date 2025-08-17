@@ -1,7 +1,6 @@
 package cn.sparrowmini.common.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
+@Entity
+@Table(name = TablePrefix.NAME + "model")
 public class Model implements Serializable {
 
     public Model(String id) {
@@ -22,10 +23,12 @@ public class Model implements Serializable {
 
 
     @Id
+    @Column(length = 500)
     private String id;
     private String name;
     private String remark;
 
+    @OneToMany(mappedBy = "model")
     private List<ModelAttribute> modelAttributes;
 
 }

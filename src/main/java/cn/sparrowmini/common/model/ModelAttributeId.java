@@ -13,10 +13,9 @@ import java.io.Serializable;
 public class ModelAttributeId implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Column(length = 50)
+    @Column(length = 500)
     private String modelId;
 
-    @Column(length = 50)
     private String attributeId;
 
     public ModelAttributeId(String modelId, String attributeId) {

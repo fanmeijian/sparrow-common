@@ -1,6 +1,7 @@
 package cn.sparrowmini.common.model;
 
-import jakarta.persistence.EmbeddedId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Setter
 @Getter
+@Entity
+@Table(name = TablePrefix.NAME + "model_attribute")
 public class ModelAttribute implements Serializable {
 	/**
 	 * 
@@ -22,6 +25,11 @@ public class ModelAttribute implements Serializable {
 	private String type;
 	private String name;
 	private String remark;
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "modelId", insertable = false, updatable = false)
+	private Model model;
 
 	public ModelAttribute(ModelAttributeId id) {
 		super();
